@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_progress_circle/main.dart';
+import 'package:smart_progress_circle/smart_progress_circle.dart';
 
 void main() {
   runApp(const MyApp());
