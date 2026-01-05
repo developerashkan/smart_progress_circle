@@ -1,6 +1,6 @@
-# smart_progress_circle_example
+# example
 
-Demonstrates how to use the smart_progress_circle plugin.
+A new Flutter project.
 
 ## Getting Started
 

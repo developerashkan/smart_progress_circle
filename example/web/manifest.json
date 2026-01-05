@@ -1,11 +1,11 @@
 {
-    "name": "smart_progress_circle_example",
-    "short_name": "smart_progress_circle_example",
+    "name": "example",
+    "short_name": "example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the smart_progress_circle plugin.",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

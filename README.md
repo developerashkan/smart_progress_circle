@@ -2,15 +2,27 @@
 
 ## Overview
 
-The Circular Progress Bar Flutter Plugin is a customizable widget that displays a circular progress indicator with interactive features. Users can drag to adjust the value, tap to enter a new value, and customize various aspects of the widget, including colors, sizes, and styles. This plugin is ideal for applications that require a visual representation of progress or completion metrics.
+A Modern, Interactive Circular Slider for Flutter
+
+SmartProgressCircle is a highly customizable, animated circular slider widget for Flutter. It combines smooth gesture-driven interaction, modern gradient-based visuals, optional haptic feedback, and a polished bottom-sheet editor for precise value input.
+
+This widget is designed for production use and fits naturally in dashboards, health and fitness apps, IoT controls, finance tools, and advanced settings panels.
+
+---
 
 ## Features
 
-- **Customizable Parameters**: Define colors for the background, progress, marks, borders, and buttons.
-- **Interactive Value Adjustment**: Users can adjust the progress by dragging around the circular indicator.
-- **Input Dialog**: Tap the progress bar to open a dialog for manual value input.
-- **Responsive Design**: Automatically adjusts to different screen sizes and orientations.
-- **Default Styling**: Comes with sensible defaults that can be easily overridden.
+- Drag-to-adjust circular slider
+- Tap to open a bottom-sheet editor (slider + numeric input)
+- Smooth animated transitions with easing curves
+- Gradient progress arc using `SweepGradient`
+- Animated knob with radial gradient and shadow
+- Optional tick marks around the circle
+- Percentage or numeric value display
+- Optional haptic feedback
+- Accessibility support via Flutter Semantics
+- Theme-aware (light and dark mode friendly)
+- Sensible defaults with deep customization options
 
 
 ![Screenshot 2024-10-23 173828](https://github.com/user-attachments/assets/341e69d5-2999-4402-8a56-d13541b76a1c)
@@ -26,7 +38,7 @@ To use the Circular Progress Bar plugin in your Flutter project, follow these st
    dependencies:
      flutter:
        sdk: flutter
-     circular_progress_bar: ^1.0.0 # Replace with the latest version
+     smart_progress_circle: ^0.0.6 # Replace with the latest version
    ```
 
 2. Run the following command to install the package:
@@ -42,45 +54,32 @@ To use the `CircularProgressBar` widget in your Flutter application, import the 
 ### Example
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:circular_progress_bar/circular_progress_bar.dart'; // Adjust the import according to your package structure
-
-void main() {
-  runApp(MyApp());
+SmartProgressCircle(
+minValue: 0,
+maxValue: 100,
+initialValue: 25,
+size: 300,
+icon: const Icon(Icons.thermostat, size: 48, color: Colors.deepPurple),
+label: 'Temperature',
+gradientColors: const [
+Color(0xFF00FFFF), // Electric Cyan
+Color(0xFFBD00FF), // Neon Purple
+Color(0xFFFF00FF), // Hot Pink
+],
+backgroundGradient: const [
+Color(0xFFF8FAFC),
+Color(0xFFE2E8F0),
+],
+ticks: 20,
+showTicks: true,
+strokeWidth: 24,
+enableHaptics: true,
+onChanged: (value) {
+if (kDebugMode) {
+print('New value: $value');
 }
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('Circular Progress Bar Example')),
-        body: Center(
-          child: CircularProgressBar(
-            minValue: 0,
-            maxValue: 100,
-            initialValue: 50,
-            icon: Icon(Icons.check, size: 50),
-            calculationCriteria: 'Progress',
-            backgroundColor: Colors.blueGrey,
-            progressColor: Colors.green,
-            markColor: Colors.orange,
-            borderColor: Colors.black,
-            dialogBackgroundColor: Colors.white,
-            dialogTextColor: Colors.black,
-            buttonColor: Colors.green,
-            buttonTextColor: Colors.white,
-            cancelButtonColor: Colors.red,
-            cancelButtonTextColor: Colors.white, 
-            onChanged: (value) {
-             print("Current value is: $value");
-            }
-          ),
-        ),
-      ),
-    );
-  }
-}
+},
+)
 ```
 
 ### Parameters

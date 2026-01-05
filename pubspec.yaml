@@ -1,8 +1,8 @@
 name: smart_progress_circle
 description: "SmartProgressCircle is a customizable Flutter widget for displaying dynamic circular progress. Ideal for real-time updates in apps like fitness trackers and dashboards."
-version: 0.0.5
-homepage: https://github.com/ashkanbmn/smart_progress_circle
-repository: https://github.com/ashkanbmn/smart_progress_circle
+version: 0.0.6
+homepage: https://github.com/developerashkan/smart_progress_circle
+repository: https://github.com/developerashkan/smart_progress_circle
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
@@ -11,29 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   plugin:
-    platforms:
-      android:
-        package: com.ashkan.smart_progress_circle.smart_progress_circle
-        pluginClass: SmartProgressCirclePlugin
-      ios:
-        pluginClass: SmartProgressCirclePlugin
-      linux:
-        pluginClass: SmartProgressCirclePlugin
-      macos:
-        pluginClass: SmartProgressCirclePlugin
-      windows:
-        pluginClass: SmartProgressCirclePluginCApi
-      web:
-        pluginClass: SmartProgressCircleWeb
-        fileName: smart_progress_circle_web.dart
+    platforms: {}
