@@ -73,7 +73,8 @@ class SmartProgressCircle extends StatefulWidget {
   State<SmartProgressCircle> createState() => _SmartProgressCircleState();
 }
 
-class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTickerProviderStateMixin {
+class _SmartProgressCircleState extends State<SmartProgressCircle>
+    with SingleTickerProviderStateMixin {
   late double _value;
   late AnimationController _animController;
   late Animation<double> _valueAnimation;
@@ -133,7 +134,8 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
     if (widget.onChanged != null) widget.onChanged!(_value);
   }
 
-  double get _percentage => (_animatedValue - widget.minValue) / (widget.maxValue - widget.minValue);
+  double get _percentage =>
+      (_animatedValue - widget.minValue) / (widget.maxValue - widget.minValue);
 
   void _updateFromLocalPosition(Offset localPos, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
@@ -145,7 +147,9 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
     if (angleFromTop < 0) angleFromTop += 2 * pi;
 
     double progress = angleFromTop / (2 * pi);
-    final newValue = (widget.minValue + progress * (widget.maxValue - widget.minValue)).clamp(widget.minValue, widget.maxValue);
+    final newValue =
+        (widget.minValue + progress * (widget.maxValue - widget.minValue))
+            .clamp(widget.minValue, widget.maxValue);
 
     if ((newValue - _value).abs() > 0.01) {
       _animateTo(newValue);
@@ -166,7 +170,8 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
           builder: (context, setModalState) {
             return Container(
               decoration: BoxDecoration(
-                color: widget.sheetBackgroundColor ?? Theme.of(context).cardColor,
+                color:
+                    widget.sheetBackgroundColor ?? Theme.of(context).cardColor,
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(28),
                 ),
@@ -218,10 +223,15 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
                       overlayShape: const RoundSliderOverlayShape(
                         overlayRadius: 28,
                       ),
-                      activeTrackColor: widget.primaryColor ?? widget.gradientColors.first,
-                      inactiveTrackColor: (widget.primaryColor ?? widget.gradientColors.first).withOpacity(0.2),
+                      activeTrackColor:
+                          widget.primaryColor ?? widget.gradientColors.first,
+                      inactiveTrackColor:
+                          (widget.primaryColor ?? widget.gradientColors.first)
+                              .withOpacity(0.2),
                       thumbColor: Colors.white,
-                      overlayColor: (widget.primaryColor ?? widget.gradientColors.first).withOpacity(0.2),
+                      overlayColor:
+                          (widget.primaryColor ?? widget.gradientColors.first)
+                              .withOpacity(0.2),
                     ),
                     child: Slider(
                       min: widget.minValue,
@@ -249,7 +259,9 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
                         borderRadius: BorderRadius.circular(16),
                       ),
                       filled: true,
-                      fillColor: Theme.of(context).brightness == Brightness.dark ? Colors.grey[800] : Colors.grey[100],
+                      fillColor: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.grey[800]
+                          : Colors.grey[100],
                     ),
                     onChanged: (txt) {
                       final parsed = double.tryParse(txt);
@@ -351,7 +363,8 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
         onTap: () async {
           // Allow current animations to visibly finish before showing confirmation sheet
           if (widget.enableAnimation && mounted) {
-            final animDur = _animController.duration ?? const Duration(milliseconds: 600);
+            final animDur =
+                _animController.duration ?? const Duration(milliseconds: 600);
             await Future.delayed(animDur + const Duration(milliseconds: 220));
           }
           if (mounted) await _showEditSheet();
@@ -360,7 +373,9 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
           width: widget.size,
           height: widget.size,
           decoration: BoxDecoration(
-            gradient: widget.backgroundGradient != null ? LinearGradient(colors: widget.backgroundGradient!) : null,
+            gradient: widget.backgroundGradient != null
+                ? LinearGradient(colors: widget.backgroundGradient!)
+                : null,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
@@ -390,7 +405,8 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
                   ticks: widget.ticks,
                   showTicks: widget.showTicks,
                   knobSize: widget.knobSize,
-                  knobGradient: widget.knobGradient ?? [Colors.white, Colors.grey.shade100],
+                  knobGradient: widget.knobGradient ??
+                      [Colors.white, Colors.grey.shade100],
                 ),
               ),
 
@@ -413,7 +429,9 @@ class _SmartProgressCircleState extends State<SmartProgressCircle> with SingleTi
                           colors: widget.gradientColors,
                         ).createShader(bounds),
                         child: Text(
-                          widget.showPercentage ? '${(val / widget.maxValue * 100).toStringAsFixed(0)}%' : val.toStringAsFixed(1),
+                          widget.showPercentage
+                              ? '${(val / widget.maxValue * 100).toStringAsFixed(0)}%'
+                              : val.toStringAsFixed(1),
                           style: TextStyle(
                             fontSize: widget.size * 0.14,
                             fontWeight: FontWeight.w900,
@@ -579,5 +597,8 @@ class _ModernCirclePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _ModernCirclePainter old) => old.percentage != percentage || old.gradientColors != gradientColors || old.strokeWidth != strokeWidth;
+  bool shouldRepaint(covariant _ModernCirclePainter old) =>
+      old.percentage != percentage ||
+      old.gradientColors != gradientColors ||
+      old.strokeWidth != strokeWidth;
 }
