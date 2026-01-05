@@ -25,7 +25,7 @@ This widget is designed for production use and fits naturally in dashboards, hea
 - Sensible defaults with deep customization options
 
 
-![Screenshot 2024-10-23 173828](https://github.com/user-attachments/assets/341e69d5-2999-4402-8a56-d13541b76a1c)
+![Screenshot 2024-10-23 173828](https://github.com/user-attachments/assets/8e30a19f-9dac-4c87-b204-fa17a7799426)
 
 
 ## Installation
