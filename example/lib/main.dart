@@ -49,7 +49,8 @@ class _ProgressCircleDemoState extends State<ProgressCircleDemo> {
               maxValue: 100,
               initialValue: 25,
               size: 300,
-              icon: const Icon(Icons.thermostat, size: 48, color: Colors.deepPurple),
+              icon: const Icon(Icons.thermostat,
+                  size: 48, color: Colors.deepPurple),
               label: 'Temperature',
               gradientColors: const [
                 Color(0xFF00FFFF), // Electric Cyan
