@@ -24,6 +24,8 @@ This widget is designed for production use and fits naturally in dashboards, hea
 - Theme-aware (light and dark mode friendly)
 - Sensible defaults with deep customization options
 
+[▶ Watch demo video](https://github.com/user-attachments/assets/a68ff417-798c-453b-9f32-f9c32cd6327c)
+
 
 ![Screenshot 2024-10-23 173828](https://github.com/user-attachments/assets/8e30a19f-9dac-4c87-b204-fa17a7799426)
 
