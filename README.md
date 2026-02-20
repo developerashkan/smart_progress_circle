@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Modern, Interactive Circular Slider for Flutte
+A Modern, Interactive Circular Slider for Flutter
 
 SmartProgressCircle is a highly customizable, animated circular slider widget for Flutter. It combines smooth gesture-driven interaction, modern gradient-based visuals, optional haptic feedback, and a polished bottom-sheet editor for precise value input.
 
