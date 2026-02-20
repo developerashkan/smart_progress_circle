@@ -3,7 +3,6 @@ description: "SmartProgressCircle is a customizable Flutter widget for displayin
 version: 0.0.7
 homepage: https://github.com/developerashkan/smart_progress_circle
 repository: https://github.com/developerashkan/smart_progress_circle
-
 environment:
   sdk: '>=3.3.4 <4.0.0'
   flutter: '>=3.3.0'
