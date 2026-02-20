@@ -10,7 +10,7 @@ This widget is designed for production use and fits naturally in dashboards, hea
 
 ---
 
-## Feature
+## Features
 
 - Drag-to-adjust circular slider
 - Tap to open a bottom-sheet editor (slider + numeric input)
