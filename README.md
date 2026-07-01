@@ -40,7 +40,7 @@ To use the Circular Progress Bar plugin in your Flutter project, follow these st
    dependencies:
      flutter:
        sdk: flutter
-     smart_progress_circle: ^0.0.7 # Replace with the latest version
+     smart_progress_circle: ^0.1.0 # Replace with the latest version
    ```
 
 2. Run the following command to install the package:

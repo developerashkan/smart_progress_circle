@@ -37,7 +37,7 @@ class SmartProgressCircle extends StatefulWidget {
   final String? semanticLabel;
 
   const SmartProgressCircle({
-    Key? key,
+    super.key,
     required this.minValue,
     required this.maxValue,
     required this.initialValue,
@@ -66,8 +66,7 @@ class SmartProgressCircle extends StatefulWidget {
     this.onPrimaryColor,
     this.onChanged,
     this.semanticLabel,
-  })  : assert(minValue < maxValue),
-        super(key: key);
+  })  : assert(minValue < maxValue);
 
   @override
   State<SmartProgressCircle> createState() => _SmartProgressCircleState();
@@ -177,7 +176,7 @@ class _SmartProgressCircleState extends State<SmartProgressCircle>
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 20,
                     offset: const Offset(0, -4),
                   ),
@@ -227,11 +226,11 @@ class _SmartProgressCircleState extends State<SmartProgressCircle>
                           widget.primaryColor ?? widget.gradientColors.first,
                       inactiveTrackColor:
                           (widget.primaryColor ?? widget.gradientColors.first)
-                              .withOpacity(0.2),
+                              .withValues(alpha: 0.2),
                       thumbColor: Colors.white,
                       overlayColor:
                           (widget.primaryColor ?? widget.gradientColors.first)
-                              .withOpacity(0.2),
+                              .withValues(alpha: 0.2),
                     ),
                     child: Slider(
                       min: widget.minValue,
@@ -288,7 +287,7 @@ class _SmartProgressCircleState extends State<SmartProgressCircle>
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: widget.gradientColors.first.withOpacity(0.4),
+                          color: widget.gradientColors.first.withValues(alpha: 0.4),
                           blurRadius: 12,
                           offset: const Offset(0, 6),
                         ),
@@ -344,7 +343,7 @@ class _SmartProgressCircleState extends State<SmartProgressCircle>
   Widget build(BuildContext context) {
     return Semantics(
       label: widget.semanticLabel ?? 'Circular slider',
-      value: '${_animatedValue.toStringAsFixed(1)}',
+      value: _animatedValue.toStringAsFixed(1),
       child: GestureDetector(
         onPanDown: (details) {
           final box = context.findRenderObject() as RenderBox;
@@ -379,12 +378,12 @@ class _SmartProgressCircleState extends State<SmartProgressCircle>
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.06),
+                color: Colors.black.withValues(alpha: 0.06),
                 blurRadius: 24,
                 offset: const Offset(0, 12),
               ),
               BoxShadow(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withValues(alpha: 0.8),
                 blurRadius: 12,
                 offset: const Offset(-8, -8),
               ),
@@ -423,7 +422,7 @@ class _SmartProgressCircleState extends State<SmartProgressCircle>
                   TweenAnimationBuilder<double>(
                     tween: Tween(begin: _animatedValue, end: _animatedValue),
                     duration: const Duration(milliseconds: 300),
-                    builder: (_, val, __) {
+                    builder: (_, val, _) {
                       return ShaderMask(
                         shaderCallback: (bounds) => LinearGradient(
                           colors: widget.gradientColors,
@@ -495,7 +494,7 @@ class _ModernCirclePainter extends CustomPainter {
 
     // Background track
     final bgPaint = Paint()
-      ..color = Colors.grey.withOpacity(0.1)
+      ..color = Colors.grey.withValues(alpha: 0.1)
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
@@ -541,7 +540,7 @@ class _ModernCirclePainter extends CustomPainter {
     final sweep = percentage.clamp(0.0, 1.0) * 2 * pi;
 
     // Make gradient intentionally very soft
-    final lightColors = gradientColors.map((c) => c.withOpacity(0.7)).toList();
+    final lightColors = gradientColors.map((c) => c.withValues(alpha: 0.7)).toList();
 
     // This ensures the first color always starts at 12 o'clock (-90 degrees)
     final gradient = SweepGradient(
@@ -571,7 +570,7 @@ class _ModernCirclePainter extends CustomPainter {
     canvas.drawCircle(
       knobCenter,
       knobSize + 3,
-      Paint()..color = Colors.black.withOpacity(0.10),
+      Paint()..color = Colors.black.withValues(alpha: 0.10),
     );
 
     // Knob gradient
@@ -588,7 +587,7 @@ class _ModernCirclePainter extends CustomPainter {
 
     // Knob border
     final knobBorderPaint = Paint()
-      ..color = gradientColors.last.withOpacity(0.65)
+      ..color = gradientColors.last.withValues(alpha: 0.65)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3;
 
